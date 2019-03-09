@@ -1,0 +1,28 @@
+<? $queried_object = get_queried_object(); 
+$taxonomy = $queried_object->taxonomy;
+$term_id = $queried_object->term_id; 
+?>
+<?
+	if ( is_category() ) { 
+	$title = get_field('заголовок', $taxonomy . '_' . $term_id);
+	$desc = get_field('описание', $taxonomy . '_' . $term_id);
+	$key = get_field('ключи', $taxonomy . '_' . $term_id);
+	} else {
+		$title = get_field('заголовок');
+		$desc = get_field('описание');
+		$key = get_field('ключи');
+	}
+?>	
+<? if ( $title == '' ) { ?>
+    <title><? if ( is_category() ) { single_cat_title(); } else { the_title(); } ?></title>
+<? } else { ?>
+	<title><?php echo $title; ?></title>
+<? } ?>
+	
+	<? if ( $desc == '' ) { ?>
+		<meta name="description" content="<? echo $desc; ?>"/>
+	<? } ?>
+	
+	<? if ( $key == '' ) { ?>
+		<meta name="keywords" content="<? echo $key; ?>"/>
+  <? } ?>
