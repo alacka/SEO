@@ -19,10 +19,10 @@ $term_id = $queried_object->term_id;
 	<title><?php echo $title; ?></title>
 <? } ?>
 	
-	<? if ( $desc == '' ) { ?>
+	<? if ( $desc == '' ) { } else {?>
 		<meta name="description" content="<? echo $desc; ?>"/>
 	<? } ?>
 	
-	<? if ( $key == '' ) { ?>
+	<? if ( $key == '' ) { } else { ?>
 		<meta name="keywords" content="<? echo $key; ?>"/>
   <? } ?>
