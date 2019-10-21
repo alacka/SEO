@@ -1,0 +1,24 @@
+<script type=application/ld+json>{
+  "@context": "https://schema.org",
+  "@type" : "Organization",
+  "name" : "Avtoritm24",
+  "url" : "https://avtoritm24.ru/",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Москва",
+    "postalCode": "115172",
+    "streetAddress": "Большие Каменщики, 6к1а"
+  },
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "+7(495)760-1501",
+    "contactType": "sales"
+  },
+  "sameAs" : [
+    "https://vk.com/club51215924",
+    "https://www.facebook.com/avtoritm24/",
+    "https://twitter.com/vikem68",
+    "https://ok.ru/evakuats",
+    "https://plus.google.com/102699496897475118650"
+  ]
+}</script>
