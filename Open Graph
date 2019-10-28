@@ -7,4 +7,4 @@
 
 
 All in One
-<?php echo get_post_meta($post->ID, _aioseop_title, true); ?>
+<?php echo get_post_meta($post->ID, _aioseop_description, true); ?>
