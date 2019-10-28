@@ -51,3 +51,37 @@
      </span>,
     History:
     </div>
+
+
+
+
+
+
+
+
+
+
+
+<div itemscope itemtype="https://schema.org/Organization" style="display:none;">
+<meta itemprop="name" content="Мой Магазин" />
+<link itemprop="url" href="https://microdata.pro/demo/" />
+<link itemprop="logo" href="https://microdata.pro/demo/image/catalog/logo.png" />
+<meta itemprop="description" content="Мой Магазин" /><meta itemprop="email" content="prut.n.v@gmail.com" />
+<div itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
+<meta itemprop="addressLocality" content="Москва, Россия" />			  
+<meta itemprop="postalCode" content="012345" />
+<meta itemprop="streetAddress" content="Пл. Победы 26Б" />
+</div>
+<meta itemprop="telephone" content="+12-345-678-90-00" />
+<meta itemprop="telephone" content="+12-435-667-55-04" />
+<div itemprop="aggregateRating" itemscope itemtype="https://schema.org/AggregateRating">
+<meta itemprop="ratingValue" content="4.5">
+<meta itemprop="reviewCount" content="2">
+</div>
+<link itemprop="sameAs" href="https://vk.com/group" />
+<link itemprop="sameAs" href="https://twitter.com/group" />
+<form itemprop="potentialAction" itemscope itemtype="https://schema.org/SearchAction">
+<meta itemprop="target" content="https://microdata.pro/demo/index.php?route=product/search&search={search_term_string}"/>
+<input itemprop="query-input" type="text" required name="search_term_string"/>
+</form>		  
+</div>
