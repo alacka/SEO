@@ -3,3 +3,8 @@
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://site.ru">
 <meta property="og:description" content="Описание ">
+
+
+
+All in One
+<?php echo get_post_meta($post->ID, _aioseop_title, true); ?>
