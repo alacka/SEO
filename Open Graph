@@ -9,3 +9,14 @@
 
 All in One
 <?php echo get_post_meta($post->ID, _aioseop_description, true); ?>
+
+
+
+
+
+<meta property="og:locale" content="ru_RU" />
+<meta property="og:title" content="<? the_title(); ?>">
+<meta property="og:image" content="http://prikol.is/wp-content/uploads/2020/01/newlogo61-e1579629987672.png">
+<meta property="og:type" content="website">
+<meta property="og:url" content="<? the_permalink(); ?>">
+<meta property="og:description" content="<? the_excerpt(); ?>">
