@@ -1,0 +1,77 @@
+<div itemscope itemtype="http://schema.org/Product">
+
+ 
+
+ <span itemprop="brand">[brand]</span>
+
+ <span itemprop="name">[name]</span>
+
+ <img itemprop="image" src="[img_url]" />
+
+ <span itemprop="description">[description]</span>
+
+ <span itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+
+       <meta itemprop="priceCurrency" content="[currency]" />
+
+       <span itemprop="price">[price]</span>
+
+       <link itemprop="availability" href="http://schema.org/InStock"/>
+
+ </span>
+
+ 
+
+    1.2. Продолжение шаблона микроразметки товара - блок разметки отзывов (пример микроразметки itemreviewed).
+
+ 
+
+<div itemprop="review" itemscope itemtype="http://schema.org/Review">
+
+   <span itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating">
+
+       <meta itemprop="worstRating" content = "[min_rating]">
+
+       <meta itemprop="bestRating"  content = "[max_rating]">
+
+       <span itemprop="ratingValue">[rating]</span>
+
+   </span>
+
+   <span itemprop="itemreviewed">[item_name]</span>
+
+   <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+
+       <span itemprop="name">[author_name]</span>
+
+   </span>
+
+   <meta itemprop="datePublished" content="[date]">
+
+   <div itemprop="reviewBody">[review]</div>
+
+</div>
+
+ 
+
+    1.3. Продолжение шаблона разметки - суммарный рейтинга товара (пример разметки aggregateRating - звезды):
+
+ 
+
+<div itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">
+
+     <span itemprop="ratingValue">[value]</span>
+
+     <meta itemprop="bestRating" content="[max_rating]"/>
+
+     <meta itemprop="worstRating" content="[min_rating]"/>
+
+     <span itemprop="ratingCount">[num_votes]</span>
+
+     <span itemprop="reviewCount">[num_rewiev_count]</span>
+
+</div>
+
+ 
+
+</div>
