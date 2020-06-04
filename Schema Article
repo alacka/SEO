@@ -1,0 +1,27 @@
+<script type="application/ld+json">
+{ "@context": "https://schema.org", 
+ "@type": "Article",
+ "headline": "<?php the_title(); ?>",
+ "image": "<?php echo get_the_post_thumbnail_url(); ?>",
+ "author": "<?php the_author(); ?>", 
+ "genre": "Легальные букмекерские конторы", 
+ "keywords": "букмекерские конторы", 
+ "url": "<?php the_permalink(); ?>",
+   "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://google.com/article"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Легальные букмекерские конторы",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://dddd.ru/wp-content/uploads/2020/03/Изображение-01-1024x608.jpg"
+    }
+  },
+ "datePublished": "<?php the_time('c'); ?>",
+ "dateModified": "<?php the_modified_date('c'); ?>",
+ "description": "<?php the_excerpt(); ?>",
+ "articleBody": "<?php $content = get_the_content(); echo wp_filter_nohtml_kses( $content ); ?>"
+ }
+</script>
