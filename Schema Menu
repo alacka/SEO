@@ -1,0 +1,129 @@
+<div class="top-menu" itemscope="" itemtype="http://schema.org/SiteNavigationElement">
+					<ul style="margin: 0;padding: 0;" itemprop="about" itemscope="" itemtype="http://schema.org/ItemList">
+					<?
+						wp_nav_menu( array(
+						'theme_location'  => 'top',
+						'menu'            => 'top', 
+						'container'       => '', 
+						'container_class' => '', 
+						'container_id'    => '',
+						'menu_class'      => 'menu', 
+						'menu_id'         => '',
+						'echo'            => true,
+						'fallback_cb'     => 'top',
+						'before'          => '',
+						'after'           => '',
+						'link_before'     => '',
+						'link_after'      => '',
+						'items_wrap'      => '%3$s',
+						'depth'           => 0,
+						'walker' => new Custom_Walker_Nav_Menu_schema
+						) );
+					?>
+					</ul>
+				</div>
+        
+        
+        
+        
+
+
+class Custom_Walker_Nav_Menu_schema extends Walker_Nav_Menu {
+  function start_el ( &$output, $item, $depth = 0, $args = array(), $id = 0 ) {
+    if ( isset( $args->item_spacing ) && 'discard' === $args->item_spacing ) {
+			$t = '';
+			$n = '';
+		} else {
+			$t = "\t";
+			$n = "\n";
+		}
+		$indent = ( $depth ) ? str_repeat( $t, $depth ) : '';
+
+		$classes = empty( $item->classes ) ? array() : (array) $item->classes;
+		$classes[] = 'menu-item-' . $item->ID;
+
+		$args = apply_filters( 'nav_menu_item_args', $args, $item, $depth );
+
+		$class_names = join( ' ', apply_filters( 'nav_menu_css_class', array_filter( $classes ), $item, $args, $depth ) );
+		$class_names = $class_names ? ' class="' . esc_attr( $class_names ) . '" itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ItemList"' : '';
+
+		$id = apply_filters( 'nav_menu_item_id', 'menu-item-'. $item->ID, $item, $args, $depth );
+		$id = $id ? ' id="' . esc_attr( $id ) . '"' : '';
+
+		// создаем HTML код элемента меню
+		$output .= $indent . '<li' . $id . $class_names .'>';
+
+		$atts = array();
+		$atts['title']  = ! empty( $item->attr_title ) ? $item->attr_title : '';
+		$atts['target'] = ! empty( $item->target )     ? $item->target     : '';
+		$atts['rel']    = ! empty( $item->xfn )        ? $item->xfn        : '';
+		$atts['href']   = ! empty( $item->url )        ? $item->url        : '';
+
+		$atts = apply_filters( 'nav_menu_link_attributes', $atts, $item, $args, $depth );
+
+		$attributes = '';
+		foreach ( $atts as $attr => $value ) {
+			if ( ! empty( $value ) ) {
+				$value = ( 'href' === $attr ) ? esc_url( $value ) : esc_attr( $value );
+				$attributes .= ' ' . $attr . '="' . $value . '"';
+			}
+		}
+
+		$title = apply_filters( 'the_title', $item->title, $item->ID );
+		$title = apply_filters( 'nav_menu_item_title', $title, $item, $args, $depth );
+
+		$item_output = $args->before;
+		$item_output .= '<a'. $attributes .' itemprop="url">';
+		$item_output .= $args->link_before . $title . $args->link_after;
+		$item_output .= '</a>';
+		$item_output .= $args->after;
+	  
+	  
+	  
+	  parent::start_el( $output, $item, $depth, $args );
+    $output .= sprintf( 
+        '<meta itemprop="name" content="%s" />', 
+        esc_html( $item->title ) 
+    );
+	  
+	  
+	  
+	  
+
+	/*	$output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args ); */
+	}
+
+
+  function end_el( &$output, $item, $depth = 0, $args = array() ) {
+    if ( isset( $args->item_spacing ) && 'discard' === $args->item_spacing ) {
+			$t = '';
+			$n = '';
+		} else {
+			$t = "\t";
+			$n = "\n";
+		}
+		$output .= "</li>{$n}";
+  }
+  
+  
+  function start_lvl( &$output, $depth = 0, $args = array() ) {
+        // depth dependent classes
+        $indent = ( $depth > 0  ? str_repeat( "\t", $depth ) : '' ); // code indent
+        $display_depth = ( $depth + 1); // because it counts the first submenu as 0
+        $classes = array(
+            'sub-menu',
+            'menu-depth-' . $display_depth
+        );
+        $class_names = implode( ' ', $classes );
+
+        // build html
+        if ($display_depth == 1) {
+            $output .= "\n" . $indent . '<div class="sub-menu__wrapper"><ul class="' . $class_names . '">' . "\n";
+        } else {
+            $output .= "\n" . $indent . '<ul class="' . $class_names . '" itemprop="about" itemscope="" itemtype="http://schema.org/ItemList">' . "\n";
+        }
+    }
+    
+    
+    
+}
